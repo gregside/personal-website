@@ -1,0 +1,230 @@
+.about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(148, 163, 184, 0.2);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+}
+
+.about-text p {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.about-skills h3 {
+  color: #cbd5e1;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ── Button ── */
+.skill-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.55), rgba(30, 41, 59, 0.35));
+  color: #cbd5e1;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(139, 92, 246, 0.06));
+  transition: opacity 0.3s;
+}
+
+.skill-btn:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #f1f5f9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.08);
+}
+
+.skill-btn:hover::before {
+  opacity: 1;
+}
+
+.skill-btn--active {
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #f1f5f9;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(56, 189, 248, 0.08));
+  box-shadow:
+    0 0 20px rgba(56, 189, 248, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.skill-btn--active::before {
+  opacity: 1;
+}
+
+.skill-btn-label {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  text-align: left;
+}
+
+.skill-btn-count {
+  position: relative;
+  z-index: 1;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+  letter-spacing: 0.3px;
+  min-width: 1.6rem;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.skill-btn--active .skill-btn-count {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+.skill-btn-chevron {
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-btn-chevron::before,
+.skill-btn-chevron::after {
+  content: "";
+  position: absolute;
+  background: #38bdf8;
+  border-radius: 1px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-btn-chevron::before {
+  width: 10px;
+  height: 2px;
+  top: 8px;
+  left: 1px;
+  transform: rotate(45deg);
+}
+
+.skill-btn-chevron::after {
+  width: 10px;
+  height: 2px;
+  top: 8px;
+  right: 1px;
+  transform: rotate(-45deg);
+}
+
+.skill-btn--active .skill-btn-chevron::before {
+  transform: rotate(-45deg);
+}
+
+.skill-btn--active .skill-btn-chevron::after {
+  transform: rotate(45deg);
+}
+
+/* ── Expandable panel ── */
+.skill-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-panel--open {
+  grid-template-rows: 1fr;
+}
+
+.skill-panel-inner {
+  overflow: hidden;
+}
+
+.skill-panel--open .skill-panel-inner {
+  padding-top: 0.25rem;
+}
+
+.skill-panel .skills-list {
+  padding: 0.5rem 1.1rem 0.75rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.35s 0.05s, transform 0.35s 0.05s;
+}
+
+.skill-panel--open .skills-list {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skills-list li {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.skills-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
+}
+
+@media (max-width: 700px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
