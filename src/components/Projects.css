@@ -58,6 +58,7 @@
 .project-links {
   display: flex;
   gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .project-links a {
@@ -70,4 +71,9 @@
 
 .project-links a:hover {
   color: #38bdf8;
+}
+
+.project-docs-link {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
 }

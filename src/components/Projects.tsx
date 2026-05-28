@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import "./Projects.css";
 
@@ -7,7 +8,7 @@ export default function Projects() {
       <h2 className="section-title">Projects</h2>
       <div className="projects-grid">
         {projects.map((project) => (
-          <div key={project.title} className="project-card">
+          <div key={project.slug} className="project-card">
             <div className="project-card-top">
               <h3 className="project-card-title">{project.title}</h3>
               <p className="project-card-description">{project.description}</p>
@@ -39,6 +40,9 @@ export default function Projects() {
                     Live Demo
                   </a>
                 )}
+                <Link to={`/projects/${project.slug}`} className="project-docs-link">
+                  Documentation
+                </Link>
               </div>
             </div>
           </div>
