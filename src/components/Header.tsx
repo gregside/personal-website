@@ -1,11 +1,27 @@
+import { useState, useEffect } from "react";
 import "./Header.css";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close menu on route change / resize past breakpoint
+  useEffect(() => {
+    const close = () => setMenuOpen(false);
+    window.addEventListener("resize", close);
+    return () => window.removeEventListener("resize", close);
+  }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
     <header className="header">
       <div className="header-inner">
         <div className="header-left">
-          <a href="#hero" className="logo">
+          <a href="#hero" className="logo" onClick={() => setMenuOpen(false)}>
             GW
           </a>
           <div className="header-socials">
@@ -33,13 +49,29 @@ export default function Header() {
             </a>
           </div>
         </div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
+
+        <button
+          className={`hamburger${menuOpen ? " hamburger--open" : ""}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+        </button>
+
+        <nav className={menuOpen ? "nav-open" : ""}>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+          <a href="#resume" onClick={() => setMenuOpen(false)}>Resume</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
       </div>
+
+      {menuOpen && (
+        <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
+      )}
     </header>
   );
 }
