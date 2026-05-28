@@ -9,7 +9,7 @@ export default function Contact() {
         a question, a project idea, or just want to say hello, my inbox is
         always open.
       </p>
-      <a href="mailto:greg@example.com" className="btn btn-primary">
+      <a href="mailto:gregforhire@pm.me" className="btn btn-primary">
         Say Hello
       </a>
     </section>
