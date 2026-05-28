@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# AI tooling
+.claude/
+.cursor/
+.aider*
+.copilot/
+CLAUDE.md
