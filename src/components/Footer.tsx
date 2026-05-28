@@ -5,14 +5,14 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-links">
         <a
-          href="https://github.com/gregwoodside"
+          href="https://github.com/gregside"
           target="_blank"
           rel="noopener noreferrer"
         >
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/gregwoodside"
+          href="https://linkedin.com/in/greg-woodside-839b6b42"
           target="_blank"
           rel="noopener noreferrer"
         >
