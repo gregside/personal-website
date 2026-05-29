@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import "./ProjectDocs.css";
 
 export default function ProjectDocs() {
   const { slug } = useParams<{ slug: string }>();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
