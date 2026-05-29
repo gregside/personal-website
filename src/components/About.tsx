@@ -22,7 +22,7 @@ export default function About() {
       <div className="about-grid">
         <div className="about-text">
           <p>
-          I am a lifelong learner and builder who loves exploring new technologies. I am currently employed as a Software Test Engineer and have 4+ years of professional experience in QA Automation, API testing.
+          I am a lifelong learner and builder who loves exploring new technologies. I am currently employed as a Software Test Engineer and have 4+ years of professional experience in Development, QA Automation, API testing.
           </p>
           <p>
           In my free time, I enjoy building web applications for personal use and to develop my skills as a frontend developer, repairing old iPods, tinkering with Raspberry Pis, and toying with my Linux config. 
